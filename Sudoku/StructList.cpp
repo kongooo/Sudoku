@@ -145,3 +145,28 @@ void addNode(structNode structList, int Data)
 	list->next = newNode;
 }
 
+void addFirstNode(structNode structList, int Data)
+{
+	structNode newNode = (structNode)malloc(sizeof(StructNode));
+	newNode->data = Data;
+	newNode->next = structList->next;
+	structList->next = newNode;
+}
+void deleteLastNode(structNode structList)
+{
+	structNode list = structList;
+	while (list->next!=NULL && list->next->next!=NULL)
+	{
+		list = list->next;
+	}
+	structNode temp = list->next;
+	list->next = NULL;
+	free(temp);
+}
+void addSecondNode(structNode structList, int Data)
+{
+	structNode newNode = (structNode)malloc(sizeof(StructNode));
+	newNode->data = Data;
+	newNode->next = structList->next->next;
+	structList->next->next = newNode;
+}
